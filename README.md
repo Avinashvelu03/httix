@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/npm/v/httix?style=flat-square&color=blue" alt="npm version" />
+  <img src="https://img.shields.io/npm/v/httix-http?style=flat-square&color=blue" alt="npm version" />
   <img src="https://img.shields.io/npm/l/httix?style=flat-square&color=green" alt="MIT License" />
   <img src="https://img.shields.io/badge/TypeScript-5.7+-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/bundle_size-~5kB_min%2Bgzip-orange?style=flat-square" alt="Bundle Size" />
@@ -43,16 +43,16 @@
 
 ```bash
 # npm
-npm install httix
+npm install httix-http
 
 # yarn
-yarn add httix
+yarn add httix-http
 
 # pnpm
-pnpm add httix
+pnpm add httix-http
 
 # bun
-bun add httix
+bun add httix-http
 ```
 
 ## Quick Start
@@ -60,7 +60,7 @@ bun add httix
 ### 1. Simple GET request
 
 ```ts
-import httix from 'httix';
+import httix from 'httix-http';
 
 const { data, status, timing } = await httix.get('/users');
 console.log(data); // parsed JSON response
@@ -71,7 +71,7 @@ console.log(timing); // request duration in ms
 ### 2. POST with JSON body
 
 ```ts
-import httix from 'httix';
+import httix from 'httix-http';
 
 const { data } = await httix.post('/users', {
   name: 'Avinash',
