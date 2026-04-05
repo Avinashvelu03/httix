@@ -5,6 +5,7 @@
   <img src="https://img.shields.io/badge/bundle_size-~5kB_min%2Bgzip-orange?style=flat-square" alt="Bundle Size" />
   <img src="https://img.shields.io/badge/zero_dependencies-brightgreen?style=flat-square" alt="Zero Dependencies" />
   <img src="https://img.shields.io/badge/coverage-100%25-success?style=flat-square" alt="100% Coverage" />
+      <img src="https://img.shields.io/github/stars/Avinashvelu03/httix-http?style=flat-square&color=yellow" alt="GitHub Stars" />
 </p>
 
 <h1 align="center">httix-http</h1>
