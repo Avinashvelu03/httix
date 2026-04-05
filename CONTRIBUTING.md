@@ -1,6 +1,6 @@
-# Contributing to httix
+# Contributing to httix-http
 
-Thank you for your interest in contributing to httix! This guide covers everything you need to get started.
+Thank you for your interest in contributing to httix-http! This guide covers everything you need to get started.
 
 ## Table of Contents
 
@@ -33,8 +33,8 @@ This project and everyone participating in it is governed by the [Contributor Co
 2. **Clone** your fork locally:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/httix.git
-cd httix
+git clone https://github.com/YOUR_USERNAME/httix-http.git
+cd httix-http
 ```
 
 3. **Install** dependencies:
@@ -183,8 +183,8 @@ npx vitest run tests/core/client.test.ts
 
 ```ts
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { createHttix } from 'httix';
-import { mockPlugin } from 'httix/plugins';
+import { createHttix } from 'httix-http';
+import { mockPlugin } from 'httix-http/plugins';
 
 describe('Feature name', () => {
   const mock = mockPlugin();
@@ -264,7 +264,7 @@ chore(deps): update vitest to v2.2
 
 Please open a [GitHub Issue](https://github.com/Avinashvelu03/httix/issues) with:
 
-1. **httix version** you're using.
+1. **httix-http version** you're using.
 2. **Node.js version** and runtime (Node, Deno, Bun, browser).
 3. **Minimal reproducible example** — a small code snippet that demonstrates the issue.
 4. **Expected behavior** — what you expected to happen.
@@ -282,4 +282,4 @@ We're open to all ideas, but please understand that not every request can be acc
 
 ---
 
-Thank you for contributing to httix! 🚀
+Thank you for contributing to httix-http! 🚀

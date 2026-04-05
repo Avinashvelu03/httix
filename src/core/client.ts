@@ -1,5 +1,5 @@
 /**
- * httix — Main HTTP client implementation
+ * httix-http — Main HTTP client implementation
  *
  * The HttixClientImpl class is the heart of the library. It orchestrates
  * configuration merging, middleware, interceptors, authentication,

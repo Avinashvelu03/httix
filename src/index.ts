@@ -1,5 +1,5 @@
 /**
- * httix — Main entry point
+ * httix-http — Main entry point
  *
  * Re-exports every public API surface from the library and creates a
  * pre-configured default client instance for convenience.
@@ -7,11 +7,11 @@
  * @example
  * ```ts
  * // 1. Use the default instance directly
- * import httix from 'httix';
+ * import httix from 'httix-http';
  * const { data } = await httix.get('/users');
  *
  * // 2. Create a custom instance
- * import { createHttix } from 'httix';
+ * import { createHttix } from 'httix-http';
  * const api = createHttix({ baseURL: 'https://api.example.com' });
  * const { data } = await api.get('/users');
  * ```
@@ -130,7 +130,7 @@ import { isCancel } from './features/abort';
  *
  * @example
  * ```ts
- * import httix from 'httix';
+ * import httix from 'httix-http';
  *
  * // Direct usage
  * const { data } = await httix.get('/users');
