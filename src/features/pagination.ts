@@ -28,7 +28,7 @@ export function parseLinkHeader(linkHeader: string): Record<string, string> {
     const trimmed = part.trim();
 
     // Extract URL from angle brackets
-    const urlMatch = trimmed.match(/<([^>]+)>/);
+    const urlMatch = trimmed.slice(0, 8192).match(/^<([^>]{1,2048})>/);
     if (!urlMatch) continue;
 
     const url = urlMatch[1];
