@@ -1,0 +1,17 @@
+src/
+tests/
+*.ts
+!*.d.ts
+tsconfig.json
+tsconfig.build.json
+tsup.config.ts
+vitest.config.ts
+.eslintrc.json
+.prettierrc
+.prettierignore
+.editorconfig
+.github/
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
+SECURITY.md
+.npmrc
