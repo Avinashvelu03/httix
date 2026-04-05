@@ -335,7 +335,7 @@ describe('buildRequest', () => {
 // clearTimeoutSignal
 // ---------------------------------------------------------------------------
 describe('clearTimeoutSignal', () => {
-  it('clears the timeout and aborts the controller', () => {
+  it('clears the timeout without aborting the controller', () => {
     vi.useFakeTimers();
 
     const controller = new AbortController();
@@ -344,7 +344,9 @@ describe('clearTimeoutSignal', () => {
     clearTimeoutSignal(controller, timeoutId);
 
     // Timer should have been cleared (no effect from advanceTimersByTime)
-    expect(controller.signal.aborted).toBe(true);
+    // Controller should NOT be aborted - this is intentional to allow
+    // response body parsing to complete without AbortError
+    expect(controller.signal.aborted).toBe(false);
 
     vi.useRealTimers();
   });
@@ -363,6 +365,8 @@ describe('clearTimeoutSignal', () => {
   it('handles only controller being defined', () => {
     const controller = new AbortController();
     clearTimeoutSignal(controller, undefined);
-    expect(controller.signal.aborted).toBe(true);
+    // Controller should NOT be aborted - this is intentional to allow
+    // response body parsing to complete without AbortError
+    expect(controller.signal.aborted).toBe(false);
   });
 });

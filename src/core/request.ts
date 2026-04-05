@@ -86,15 +86,16 @@ export function buildRequest(config: HttixRequestConfig): BuildRequestResult {
  * Should be called in a `finally` block after the fetch settles.
  */
 export function clearTimeoutSignal(
-  controller: AbortController | undefined,
+  _controller: AbortController | undefined,
   timeoutId: ReturnType<typeof setTimeout> | undefined,
 ): void {
   if (timeoutId !== undefined) {
     clearTimeout(timeoutId);
   }
-  if (controller) {
-    controller.abort(); // no-op if already aborted, but releases listeners
-  }
+  // Note: We do NOT abort the controller here - the timeout signal is
+  // combined with the user signal, and aborting it would cause the
+  // response body parsing (response.json(), response.text(), etc.) to fail
+  // with an AbortError. The controller will be garbage collected naturally.
 }
 
 // ---------------------------------------------------------------------------
