@@ -1,6 +1,6 @@
 {
   "name": "httix-http",
-  "version": "1.0.2",
+    "version": "1.0.3",
   "description": "Ultra-lightweight, type-safe, zero-dependency HTTP client built on native Fetch — modern axios replacement.",
   "author": "Avinashvelu03 <avinashvelu03@gmail.com>",
   "license": "MIT",
