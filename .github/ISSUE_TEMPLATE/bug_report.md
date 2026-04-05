@@ -1,46 +1,27 @@
 ---
 name: Bug Report
-about: Report a bug or unexpected behavior in httix
-title: "[Bug]: "
-labels: "bug"
-assignees: ""
+about: Report a bug in httix-http
+title: '[BUG] '
+labels: bug
+assignees: Avinashvelu03
 ---
 
-## Description
+## Describe the bug
+A clear and concise description of what the bug is.
 
-A clear and concise description of the bug.
+## To Reproduce
+Steps to reproduce the behavior:
+1. Import '...'
+2. Call '...'
+3. See error
 
-## Steps to Reproduce
-
-1. Install httix: `npm install httix`
-2. Use the following code:
-
-```ts
-// Add your reproduction code here
-```
-
-3. Observe the error
-
-## Expected Behavior
-
-A description of what you expected to happen.
-
-## Actual Behavior
-
-A description of what actually happened, including any error messages or stack traces.
-
-```
-// Paste any error output here
-```
+## Expected behavior
+What you expected to happen.
 
 ## Environment
+- httix-http version:
+- Node.js / Bun / Deno version:
+- OS:
 
-- **httix version**:
-- **Node.js version**:
-- **TypeScript version** (if applicable):
-- **Operating system**:
-- **Package manager** (npm / yarn / pnpm / bun):
-
-## Additional Context
-
-Any other context that may help diagnose the issue, such as network configuration, proxy settings, or relevant logs.
+## Additional context
+Add any other context or screenshots here.
