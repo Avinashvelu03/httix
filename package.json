@@ -6,11 +6,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Avinashvelu03/httix"
+    "url": "https://github.com/Avinashvelu03/httix-http"
   },
-  "homepage": "https://github.com/Avinashvelu03/httix#readme",
+  "homepage": "https://github.com/Avinashvelu03/httix-http#readme",
   "bugs": {
-    "url": "https://github.com/Avinashvelu03/httix/issues"
+    "url": "https://github.com/Avinashvelu03/httix-http/issues"
   },
   "keywords": [
     "http",

@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/coverage-100%25-success?style=flat-square" alt="100% Coverage" />
 </p>
 
-<h1 align="center">httix</h1>
+<h1 align="center">httix-http</h1>
 
 <p align="center">
   <strong>Ultra-lightweight, type-safe, zero-dependency HTTP client built on native Fetch.</strong><br/>
@@ -16,9 +16,9 @@
 
 ---
 
-## Why httix?
+## Why httix-http?
 
-| Feature | **httix** | axios | got | ky | ofetch |
+| Feature | **httix-http** | axios | got | ky | ofetch |
 |---|---|---|---|---|---|
 | Dependencies | **0** | 2 | 11 | 2 | 5 |
 | Size (min+gzip) | **~5 kB** | ~28 kB | ~67 kB | ~9 kB | ~12 kB |
@@ -84,7 +84,7 @@ console.log(data.id); // created user id
 ### 3. Create a configured client
 
 ```ts
-import { createHttix } from 'httix';
+import { createHttix } from 'httix-http';
 
 const api = createHttix({
   baseURL: 'https://api.example.com',
@@ -98,7 +98,7 @@ const { data } = await api.get('/users/me');
 ### 4. Error handling
 
 ```ts
-import httix, { HttixResponseError, HttixTimeoutError, HttixAbortError } from 'httix';
+import httix, { HttixResponseError, HttixTimeoutError, HttixAbortError } from 'httix-http';
 
 try {
   const { data } = await httix.get('/users/999');
@@ -117,7 +117,7 @@ try {
 ### 5. Streaming SSE events
 
 ```ts
-import httix from 'httix';
+import httix from 'httix-http';
 
 for await (const event of httix.stream.sse('/events')) {
   console.log(`[${event.type}] ${event.data}`);
@@ -136,7 +136,7 @@ for await (const event of httix.stream.sse('/events')) {
 Create a new client instance with the given configuration. This is the recommended entry-point for creating dedicated API clients.
 
 ```ts
-import { createHttix } from 'httix';
+import { createHttix } from 'httix-http';
 
 const api = createHttix({
   baseURL: 'https://api.example.com/v2',
@@ -157,7 +157,7 @@ const { data } = await api.get('/users');
 Create a derived client from the default instance, merging new configuration with the defaults:
 
 ```ts
-import httix from 'httix';
+import httix from 'httix-http';
 
 const adminApi = httix.create({
   baseURL: 'https://admin.api.example.com',
@@ -170,7 +170,7 @@ const adminApi = httix.create({
 A pre-configured default instance is exported for convenience:
 
 ```ts
-import httix from 'httix';
+import httix from 'httix-http';
 
 // Use directly
 await httix.get('/users');
@@ -361,7 +361,7 @@ httix.interceptors.request.clear();
 Automatic retry with configurable backoff strategies is built-in and enabled by default.
 
 ```ts
-import { createHttix } from 'httix';
+import { createHttix } from 'httix-http';
 
 const client = createHttix({
   baseURL: 'https://api.example.com',
@@ -452,7 +452,7 @@ try {
 Stream SSE events as an async iterable:
 
 ```ts
-import httix from 'httix';
+import httix from 'httix-http';
 
 for await (const event of httix.stream.sse('https://api.example.com/events', {
   headers: { 'Accept': 'text/event-stream' },
@@ -472,7 +472,7 @@ for await (const event of httix.stream.sse('https://api.example.com/events', {
 Stream newline-delimited JSON objects:
 
 ```ts
-import httix from 'httix';
+import httix from 'httix-http';
 
 interface LogEntry {
   timestamp: string;
@@ -490,7 +490,7 @@ for await (const entry of httix.stream.ndjson<LogEntry>('/logs/stream')) {
 Automatically deduplicate identical in-flight requests. When enabled, if multiple calls are made with the same config before the first resolves, they share the same promise.
 
 ```ts
-import { createHttix } from 'httix';
+import { createHttix } from 'httix-http';
 
 const client = createHttix({
   baseURL: 'https://api.example.com',
@@ -518,7 +518,7 @@ const client2 = createHttix({
 Client-side rate limiting to avoid overwhelming APIs:
 
 ```ts
-import { createHttix } from 'httix';
+import { createHttix } from 'httix-http';
 
 const client = createHttix({
   baseURL: 'https://rate-limited-api.example.com',
@@ -542,7 +542,7 @@ const results = await Promise.all([
 Middleware functions have access to both the request and response, and can modify either:
 
 ```ts
-import httix, { type MiddlewareFn, type MiddlewareContext } from 'httix';
+import httix, { type MiddlewareFn, type MiddlewareContext } from 'httix-http';
 
 // Timing middleware
 const timingMiddleware: MiddlewareFn = async (ctx, next) => {
@@ -576,7 +576,7 @@ const client = httix.create({
 #### Bearer Auth
 
 ```ts
-import { createHttix } from 'httix';
+import { createHttix } from 'httix-http';
 
 // Static token
 const client = createHttix({
@@ -647,7 +647,7 @@ const client2 = createHttix({
 Automatically fetch all pages of a paginated resource:
 
 ```ts
-import { createHttix } from 'httix';
+import { createHttix } from 'httix-http';
 
 const client = createHttix({ baseURL: 'https://api.example.com' });
 ```
@@ -761,8 +761,8 @@ const { data: repo } = await httix.get('/repos/:owner/:repo', {
 Plugins extend httix by registering interceptors and lifecycle hooks. Import them from `httix/plugins`.
 
 ```ts
-import { loggerPlugin, cachePlugin, mockPlugin } from 'httix/plugins';
-import { createHttix } from 'httix';
+import { loggerPlugin, cachePlugin, mockPlugin } from 'httix-http/plugins';
+import { createHttix } from 'httix-http';
 
 const client = createHttix({ baseURL: 'https://api.example.com' });
 
@@ -776,8 +776,8 @@ const logger = loggerPlugin({ level: 'debug' });
 LRU response cache with configurable TTL, stale-while-revalidate, and size limits:
 
 ```ts
-import { cachePlugin } from 'httix/plugins';
-import { createHttix } from 'httix';
+import { cachePlugin } from 'httix-http/plugins';
+import { createHttix } from 'httix-http';
 
 const client = createHttix({ baseURL: 'https://api.example.com' });
 
@@ -802,8 +802,8 @@ console.log(cache.getStats());          // { size: 12, maxSize: 200, ttl: 300000
 Structured logging of request/response lifecycle events:
 
 ```ts
-import { loggerPlugin } from 'httix/plugins';
-import { createHttix } from 'httix';
+import { loggerPlugin } from 'httix-http/plugins';
+import { createHttix } from 'httix-http';
 
 const client = createHttix({ baseURL: 'https://api.example.com' });
 
@@ -827,8 +827,8 @@ loggerPlugin({
 Replace `fetch` with an in-memory mock adapter — perfect for unit tests:
 
 ```ts
-import { mockPlugin } from 'httix/plugins';
-import { createHttix } from 'httix';
+import { mockPlugin } from 'httix-http/plugins';
+import { createHttix } from 'httix-http';
 
 const mock = mockPlugin();
 const client = createHttix({ baseURL: 'https://api.example.com' });
@@ -868,8 +868,8 @@ mock.restore();
 
 ```ts
 import { describe, it, expect, afterEach } from 'vitest';
-import { mockPlugin } from 'httix/plugins';
-import { createHttix } from 'httix';
+import { mockPlugin } from 'httix-http/plugins';
+import { createHttix } from 'httix-http';
 
 describe('Users API', () => {
   const mock = mockPlugin();
@@ -924,7 +924,7 @@ import {
   HttixTimeoutError,
   HttixAbortError,
   HttixRetryError,
-} from 'httix';
+} from 'httix-http';
 
 try {
   await httix.get('/unstable-endpoint');
@@ -999,7 +999,7 @@ const { data: user } = await httix.post<User>('/users', { name: 'Jane' });
 #### Typing request config
 
 ```ts
-import type { HttixRequestConfig, HttixResponse, RetryConfig } from 'httix';
+import type { HttixRequestConfig, HttixResponse, RetryConfig } from 'httix-http';
 
 const config: HttixRequestConfig = {
   url: '/users',
@@ -1016,7 +1016,7 @@ const config: HttixRequestConfig = {
 #### Typing middleware
 
 ```ts
-import type { MiddlewareFn, MiddlewareContext, HttixResponse } from 'httix';
+import type { MiddlewareFn, MiddlewareContext, HttixResponse } from 'httix-http';
 
 const myMiddleware: MiddlewareFn<User, HttixRequestConfig, HttixResponse<User>> = async (
   ctx: MiddlewareContext<HttixRequestConfig, HttixResponse<User>>,
@@ -1034,7 +1034,7 @@ const myMiddleware: MiddlewareFn<User, HttixRequestConfig, HttixResponse<User>> 
 #### Typing plugins
 
 ```ts
-import type { HttixPlugin } from 'httix';
+import type { HttixPlugin } from 'httix-http';
 
 const myPlugin: HttixPlugin = {
   name: 'my-plugin',
@@ -1061,7 +1061,7 @@ import axios from 'axios';
 const { data } = await axios.get('/users');
 
 // httix
-import httix from 'httix';
+import httix from 'httix-http';
 const { data } = await httix.get('/users');
 ```
 
