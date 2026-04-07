@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://img.shields.io/npm/v/httix-http?style=flat-square&color=blue" alt="npm version" />
-  <img src="https://img.shields.io/npm/l/httix?style=flat-square&color=green" alt="MIT License" />
+  <img src="https://img.shields.io/npm/l/flowx-control?style=flat-square" alt="license" />
   <img src="https://img.shields.io/badge/TypeScript-5.7+-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/bundle_size-~5kB_min%2Bgzip-orange?style=flat-square" alt="Bundle Size" />
   <img src="https://img.shields.io/badge/zero_dependencies-brightgreen?style=flat-square" alt="Zero Dependencies" />
